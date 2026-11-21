@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+
+  <meta name="description"
+        content="Racine et Lumière : accompagnement en constellations familiales et systémiques.">
+
+  <title>Racine et Lumière | Constellations familiales</title>
+
+  <style>
+    /* COULEURS DU LOGO */
+    :root {
+      --dark: #082d3b;
+      --petrole: #126176;
+      --gold: #e8b65b;
+      --cream: #f8f5ed;
+      --mist: #e8f0ef;
+      --text: #153b46;
+      --muted: #526b70;
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+    header {
+      background: #05232f;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .brand {
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .links a:hover { color: var(--gold); }
+
+    /* BOUTONS */
+    .btn {
+      display: inline-block;
+      padding: 13px 24px;
+      border-radius: 30px;
+      background: var(--gold);
+      color: var(--dark);
+      font-weight: bold;
+      text-decoration: none;
+      margin: 8px 8px 8px 0;
+    }
+
+    .btn:hover { background: #f3cd82; }
+
+    /* ACCUEIL */
+    .hero {
+      background: radial-gradient(
+        circle at 75% 45%,
+        var(--petrole),
+        var(--dark) 65%,
+        #031b29
+      );
+      color: white;
+      padding: 90px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1.15;
+      color: #fff0cf;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 46px);
+      color: var(--dark);
+    }
+
+    h3 { font-size: 25px; }
+
+    .hero p {
+      font-size: 19px;
+      color: #d7e8e8;
+    }
+
+    .hero img {
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid var(--gold);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 0;
+      scroll-margin-top: 100px;
+    }
+
+    .tint { background: var(--mist); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 35px;
+      border-radius: var(--radius);
+      border: 1px solid #e7d9bf;
+    }
+
+    .card p { color: var(--muted); }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      background: #f4e7c9;
+      color: #75501d;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .quote {
+      background: white;
+      border-left: 4px solid var(--gold);
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    /* CALENDLY */
+    .booking {
+      background: var(--mist);
+      text-align: center;
+    }
+
+    .booking-box {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 35px;
+      background: white;
+      border: 1px solid var(--gold);
+      border-radius: var(--radius);
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .contact-panel {
+      background: var(--dark);
+      color: white;
+      padding: 35px;
+      border-radius: var(--radius);
+    }
+
+    .contact-panel h3 { color: var(--gold); }
+
+    footer {
+      background: #041d2b;
+      color: white;
+      padding: 35px 0;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    /* VERSION MOBILE */
+    @media (max-width: 850px) {
+      .hero-grid,
+      .cards,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { padding: 60px 0; }
+      section { padding: 55px 0; }
+      nav { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MENU -->
+  <header>
+    <nav class="container">
+      <a class="brand" href="#accueil">
+        ✺ Racine et Lumière
+      </a>
+
+      <div class="links">
+        <a href="#accueil">Accueil</a>
+        <a href="#apropos">À propos</a>
+        <a href="#prestations">Prestations</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#temoignages">Témoignages</a>
+        <a href="#reservation">Réservation</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ACCUEIL -->
+    <section id="accueil" class="hero">
+      <div class="container hero-grid">
+
+        <div>
+          <p>Constellations familiales & systémiques</p>
+
+          <h1>
+            Explorer ses racines.<br>
+            Accueillir la lumière.
+          </h1>
+
+          <p>
+            Un espace d'écoute et d'exploration
+            des liens familiaux et des dynamiques
+            relationnelles, à votre rythme.
+          </p>
+
+          <a class="btn" href="#reservation">
+            Prendre rendez-vous
+          </a>
+
+          <a class="btn" href="#prestations">
+            Découvrir les prestations
+          </a>
+        </div>
+
+        <div>
+          <!-- Remplacer par le logo original.
+               Dans le fichier complet,
+               l'image est déjà intégrée. -->
+          <img src="logo-racine-et-lumiere.jpg"
+               alt="Logo Racine et Lumière">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section id="apropos">
+      <div class="container">
+
+        <h2>Un chemin d'écoute et de compréhension</h2>
+
+        <p>
+          Racine et Lumière propose un cadre
+          bienveillant pour explorer la place
+          que chacun occupe dans son histoire
+          familiale et ses relations.
+        </p>
+
+        <p>
+          Les constellations familiales et
+          systémiques invitent à porter un autre
+          regard sur certains liens et situations.
+        </p>
+
+        <span class="tag">TEXTE PROVISOIRE</span>
+
+        <p>
+          Présentation d'Aziza Lad, de son parcours
+          et de sa formation à compléter.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- PRESTATIONS -->
+    <section id="prestations" class="tint">
+      <div class="container">
+
+        <h2>Mes accompagnements</h2>
+
+        <div class="cards">
+
+          <article class="card">
+            <h3>Constellations familiales</h3>
+
+            <p>
+              Explorer les liens, les places
+              et les répétitions qui peuvent
+              traverser l'histoire familiale.
+            </p>
+
+            <span class="tag">MODALITÉS À CONFIRMER</span>
+
+            <p>
+              <a class="btn" href="#reservation">
+                Prendre rendez-vous
+              </a>
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Approche systémique</h3>
+
+            <p>
+              Porter un regard sur les interactions
+              et les dynamiques relationnelles
+              dans leur ensemble.
+            </p>
+
+            <span class="tag">MODALITÉS À CONFIRMER</span>
+
+            <p>
+              <a class="btn" href="#reservation">
+                Prendre rendez-vous
+              </a>
+            </p>
+          </article>
+
+        </div>
+
+        <p>
+          <small>
+            Cet accompagnement ne remplace pas
+            un diagnostic ou un suivi médical
+            ou psychologique lorsqu'ils sont nécessaires.
+          </small>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- TARIFS -->
+    <section id="tarifs">
+      <div class="container">
+
+        <h2>Tarifs des séances</h2>
+
+        <div class="cards">
+
+          <div class="card">
+            <h3>Séance individuelle</h3>
+            <p><strong>Tarif à préciser</strong></p>
+            <p>Durée et lieu à compléter.</p>
+            <span class="tag">PROVISOIRE</span>
+          </div>
+
+          <div class="card">
+            <h3>Atelier collectif</h3>
+            <p><strong>Tarif à préciser</strong></p>
+            <p>Dates et durée à confirmer.</p>
+            <span class="tag">PROVISOIRE</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TÉMOIGNAGES -->
+    <section id="temoignages" class="tint">
+      <div class="container">
+
+        <h2>Témoignages</h2>
+
+        <div class="quote">
+          <span class="tag">EMPLACEMENT PROVISOIRE</span>
+
+          <p>
+            Cette rubrique accueillera des témoignages
+            authentiques, publiés avec l'accord
+            des personnes concernées.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RÉSERVATION CALENDLY -->
+    <section id="reservation" class="booking">
+      <div class="container">
+
+        <h2>Prendre rendez-vous en ligne</h2>
+
+        <p>
+          Choisissez votre séance et le créneau
+          qui vous convient.
+        </p>
+
+        <div class="booking-box">
+
+          <h3>Réserver avec Calendly</h3>
+
+          <p>
+            Le calendrier de réservation sera
+            disponible après la création
+            de votre compte Calendly.
+          </p>
+
+          <span class="tag">
+            LIEN CALENDLY À COMPLÉTER
+          </span>
+
+          <p>
+            <!-- Remplacer cette adresse
+                 par votre véritable lien Calendly -->
+            <a class="btn"
+               href="#contact">
+              Nous contacter en attendant
+            </a>
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container contact-grid">
+
+        <div>
+          <h2>Contactez Racine et Lumière</h2>
+
+          <p>
+            Vous souhaitez en savoir plus
+            sur les constellations familiales
+            et systémiques ?
+          </p>
+
+          <p>
+            <strong>E-mail :</strong>
+            [À compléter]
+          </p>
+
+          <p>
+            <strong>Téléphone :</strong>
+            [À compléter]
+          </p>
+
+          <p>
+            <strong>Adresse :</strong>
+            [À compléter]
+          </p>
+        </div>
+
+        <div class="contact-panel">
+
+          <h3>Un premier échange ?</h3>
+
+          <p>
+            Contactez Aziza Lad pour obtenir
+            des informations sur les séances.
+          </p>
+
+          <span class="tag">
+            COORDONNÉES À COMPLÉTER
+          </span>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIED DE PAGE -->
+  <footer>
+    <div class="container">
+
+      <p>
+        © 2026 Racine et Lumière
+        — Tous droits réservés.
+      </p>
+
+      <p>
+        Mentions légales et politique
+        de confidentialité : à compléter.
+      </p>
+
+    </div>
+  </footer>
+
+</body>
+</html>
